@@ -2,21 +2,21 @@ import React, { useState } from "react";
 import useCourseStore from "../app/courseStore";
 const CourseForm = () => {
   const addCourse = useCourseStore((state) => state.addCourses);
-  const [courseTile, setCourseTitle] = useState("");
+  const [courseTitle, setCourseTitle] = useState("");
   console.log("COURSE FORM COMPONENT RENDERED");
 
   const handleCourseSubmit = () => {
-    if (!courseTile) return alert("Course title is empty");
+    if (!courseTitle) return alert("Course title is empty");
     addCourse({
       id: Math.ceil(Math.random() * 100000),
-      tile: courseTile,
+      title: courseTitle,
     });
   };
   return (
     <div className="forrm-container">
       <input
         type="text"
-        value={courseTile}
+        value={courseTitle}
         onChange={(e) => {
           setCourseTitle(e.target.value);
         }}
